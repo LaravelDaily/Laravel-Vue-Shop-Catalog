@@ -1,5 +1,8 @@
 <?php
 
+Route::get('products', 'Api\V1\ProductController@index');
+Route::get('categories', 'Api\V1\CategoryController@index');
+
 Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', 'middleware' => ['auth:api']], function () {
     // Permissions
     Route::apiResource('permissions', 'PermissionsApiController');

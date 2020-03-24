@@ -25,7 +25,7 @@
             <a class="nav-link" href="{{ route('home') }}">Laravel Blade version</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Laravel Vue version</a>
+            <a class="nav-link" href="{{ route('vue') }}">Laravel Vue version</a>
           </li>
         </ul>
       </div>
@@ -42,5 +42,6 @@
 
   <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  @yield('scripts')
 </body>
 </html>

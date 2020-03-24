@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Controllers\Controller;
+use App\Http\Resources\Admin\ProductResource;
 use App\Product;
-use App\ProductCategory;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class ProductController extends Controller
 {
     public function index()
     {
-        $categories = ProductCategory::all();
         $products = Product::when(request()->input('category'), function ($query) {
                 $query->whereHas('categories', function ($query) {
                     $query->where('id', request()->input('category'));
@@ -18,11 +18,6 @@ class HomeController extends Controller
             })
             ->paginate(6);
 
-        return view('home', compact('categories', 'products'));
-    }
-
-    public function vue()
-    {
-        return view('vue');
+        return new ProductResource($products);
     }
 }
