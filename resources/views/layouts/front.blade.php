@@ -10,6 +10,7 @@
   <title>Shop Catalog</title>
   <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/shop-homepage.css') }}" rel="stylesheet">
+  @yield('head')
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -20,43 +21,18 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('home') }}">Laravel Blade version</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#">Laravel Vue version</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="container">
-
-    <div class="row">
-
-      <div class="col-lg-3">
-
-        <h1 class="my-4">Shop Catalog</h1>
-        <div class="list-group">
-          <a href="#" class="list-group-item">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
-        </div>
-
-      </div>
-
-      @yield('content')
-
-    </div>
+  @yield('content')
 
   <footer class="footer py-5 bg-dark">
     <div class="container">
