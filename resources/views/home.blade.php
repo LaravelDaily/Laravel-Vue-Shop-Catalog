@@ -9,7 +9,7 @@
       <h1 class="my-4">Shop Catalog</h1>
       <div class="list-group">
         @foreach($categories as $category)
-          <a href="{{ route('home') }}?category={{ $category->id }}" class="list-group-item{{ request()->input('category') == $category->id ? ' active' : '' }}">
+          <a href="{{ route('home', ['category' => $category->id]) }}" class="list-group-item{{ request()->input('category') == $category->id ? ' active' : '' }}">
             {{ $category->name }}
           </a>
         @endforeach

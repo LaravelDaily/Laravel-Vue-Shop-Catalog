@@ -4,7 +4,13 @@
       <div class="col-lg-3">
         <h1 class="my-4">Shop Catalog</h1>
         <div class="list-group">
-          <category v-for="category in categories" :key="category.id" :category="category"></category>
+          <category
+            v-for="category in categories"
+            :key="category.id"
+            :category="category"
+            :selected-category="selectedCategory"
+            @load-products="loadProducts"
+          ></category>
         </div>
 
       </div>
@@ -13,8 +19,7 @@
           <product v-for="product in products" :key="product.id" :product="product"></product>
         </div>
         <div class="row">
-            <!-- {{ $products->appends(request()->query())->links() }} -->
-            <the-pagination></the-pagination>
+            <the-pagination :pagination-data="paginationData" @change-page="changePage"></the-pagination>
         </div>
       </div>
     </div>
@@ -70,6 +75,10 @@ export default {
                 .catch(function (error) {
                     console.log(error);
                 });
+        },
+
+        changePage: function (page) {
+            this.loadProducts(this.selectedCategory, page);
         }
     }
 }

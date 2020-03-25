@@ -1,8 +1,8 @@
 <template>
     <a
         class="list-group-item"
-        :class="{ 'active': this.$parent.selectedCategory == category.id }"
-        @click="$parent.loadProducts(category.id, 1)"
+        :class="{ 'active': selectedCategory == category.id }"
+        @click="$emit('load-products', category.id)"
     >
         {{ category.name }}
     </a>
@@ -11,7 +11,8 @@
 <script>
 export default {
     props: [
-        'category'
+        'category',
+        'selectedCategory'
     ]
 }
 </script>

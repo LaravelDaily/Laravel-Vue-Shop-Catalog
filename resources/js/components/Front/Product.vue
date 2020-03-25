@@ -23,7 +23,7 @@ export default {
 
     methods: {
         limitDescription: function (string, length) {
-            return string.length > length ? string.substring(0, length - 3) + "..." : string;
+            return string.length > length ? string.substring(0, length) + "..." : string;
         }
     }
 }
