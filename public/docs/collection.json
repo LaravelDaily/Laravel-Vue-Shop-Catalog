@@ -1,0 +1,86 @@
+{
+    "variables": [],
+    "info": {
+        "name": "Laravel API",
+        "_postman_id": "2f6f080e-b61d-4765-a674-6d5c67fe35f4",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Front page",
+            "description": "\nAPIs for front page",
+            "item": [
+                {
+                    "name": "Fetch products",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "demo.test",
+                            "path": "api\/products",
+                            "query": [
+                                {
+                                    "key": "category",
+                                    "value": "5",
+                                    "description": "Category ID to filter by.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "2",
+                                    "description": "The page number to return.",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "Fetch products paginated by 6 per page.",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Fetch categories",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "demo.test",
+                            "path": "api\/categories",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "Fetch all categories.",
+                        "response": []
+                    }
+                }
+            ]
+        }
+    ]
+}
